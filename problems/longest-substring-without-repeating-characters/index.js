@@ -9,21 +9,20 @@ var lengthOfLongestSubstring = function(s) {
   let substr = '';
   let max = 0;
 
-  while(i + max < len) {
-    while(right + 1 < len && !map.has(s[right + 1])) {
+  while(left + max < len) {
+    let dup = -1;
+    while(right + 1 < len && (dup = substr.indexOf(s[right + 1])) && dup === -1) {
       right++;
       substr += s[right];
     }
 
     max = Math.max(max, right - left + 1);
 
-    if(right+1 < len) {
-      let move = substr.indexOf(s[right+1]);
-      substr.substr(move);
-      left += move;
-    }
-    
+    substr = substr.substr(dup + 1);
+    left += dup + 1;
   }
   
   return max;
 };
+
+module.exports = lengthOfLongestSubstring;
