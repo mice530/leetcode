@@ -1,0 +1,22 @@
+{
+  "name": "leetcode",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/.bin/mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mice530/leetcode.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mice530/leetcode/issues"
+  },
+  "homepage": "https://github.com/mice530/leetcode#readme",
+  "devDependencies": {
+    "mocha": "^7.1.2"
+  }
+}
