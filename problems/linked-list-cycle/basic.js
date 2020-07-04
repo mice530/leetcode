@@ -1,27 +1,25 @@
 /**
- * @param {string} s
- * @return {number}
+ * Definition for singly-linked list.
+ * function ListNode(val) {
+ *     this.val = val;
+ *     this.next = null;
+ * }
  */
-var lengthOfLongestSubstring = function(s) {
-  let left = 0;
-  let right = -1;
-  let len = s.length;
-  let map = new Set();
-  let max = 0;
 
-  for(let i=0; i + max < len; i++) {
-    left = i;
-    if(i > 0) {
-      map.delete(s[left - 1]);
-    }
+/**
+ * @param {ListNode} head
+ * @return {boolean}
+ */
+var hasCycle = function(head) {
+  if(!head) return false;
 
-    while(right + 1 < len && !map.has(s[right + 1])) {
-      right++;
-      map.add(s[right]);
-    }
-
-    max = Math.max(max, right - left + 1);
+  let pivot = head;
+  while(pivot.next) {
+    if(pivot.val === null) return true; // check flag
+    pivot.val = null; // flag
+    pivot = pivot.next; // next node
   }
-  
-  return max;
+  return false;
 };
+
+module.exports = hasCycle;
